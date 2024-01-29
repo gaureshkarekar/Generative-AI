@@ -1,0 +1,98 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .main {
+        display: grid;
+        grid-template-areas: "topbar topbar topbar" "menu content content" " footer footer footer";
+        grid-template-columns: 1fr 4fr 4fr;
+        grid-template-rows: 15vh auto 20vh;
+
+    }
+
+    .header {
+        color: white;
+        background-color: black;
+        grid-area: topbar;
+        padding: 15px;
+    }
+
+    .aside {
+        grid-area: menu;
+        background-color: grey;
+    }
+
+    .content {
+        grid-area: content;
+        position: relative;
+        background-color: blanchedalmond;
+    }
+
+    .footer {
+        grid-area: footer;
+        background-color: yellowgreen;
+    }
+
+    .menu {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        padding-top: 20%;
+        padding-bottom: 20%;
+    }
+
+    .menu-button {
+        background-color: #1e4bad;
+        border: none;
+        color: white;
+        border-radius: 5px;
+        height: 10vh;
+        cursor: pointer;
+    }
+
+    .signin-button {
+        height: 50px;
+        width: 100px;
+        border: none;
+        border-radius: 10px;
+        color: white;
+        background-color: #1e4bad;
+        position: absolute;
+        margin-top: 20px;
+        right: 70px;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <div class="main">
+        <div class="header">
+            <img src="TCS_logo.png" height="70vh">
+            <button class="signin-button">Sign In</button>
+        </div>
+        <div class="aside" style="padding: 10px;">
+            <div class="menu">
+                <button class="menu-button">AMP Bank</button>
+                <button class="menu-button">Morgan HR</button>
+                <button class="menu-button">Financial Spreading</button>
+            </div>
+        </div>
+        <div class="content" style="padding: 20px;">
+            <h1>Welcome To Generative AI</h1>
+            <div class="search" style="height: 60vh; background-color: white;">
+                <textarea name="" id="" rows="10" style="width: 95%;position: absolute;bottom: 20px;"
+                    placeholder="Type you prompt...."></textarea>
+                    <button>Click me</button>
+            </div>
+
+
+        </div>
+        <div class="footer">Footer</div>
+    </div>
+</body>
+
+</html>
