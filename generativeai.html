@@ -23,7 +23,6 @@
     .chat-input-container {
         display: flex;
         margin-left: 12%;
-
     }
 
     .final-submit-btn {
@@ -114,7 +113,9 @@
         </div>
         <div class="promptmenu" id="promptmenu">
             <button class="menu-btn" onclick="docSelect(this.value)" value="openai">Azure OpenAI</button>
-            <button class="menu-btn" onclick="docSelect(this.value)" value="amp">AMP Bank</button>
+            <button class="menu-btn" onclick="docSelect(this.value)"
+                value="https://ampfuncpoc.azurewebsites.net/api/amp1?code=PPvvHwI6_Jmmh5tcuEc21C7XqHN89E7oTbGSXdP86SkQAzFuQjNblg==">AMP
+                Bank</button>
             <button class="menu-btn" onclick="docSelect(this.value)" value="morgan">Morgan HR</button>
         </div>
     </div>
@@ -138,7 +139,7 @@
         function getResponse() {
 
             let usermsg = input.value;
-            
+
             if (usermsg == "") {
                 alert("Please enter something in the textbox !");
             } else {
@@ -150,10 +151,24 @@
                 companylogo.style.display = "none";
                 messages.innerHTML += `<div class="user-messages"><span>${usermsg}</span></div>`;
                 let url = sessionStorage.getItem("api");
-                let res = "Hey, there! I am TCS Bot !";
-                setTimeout(() => {
-                    messages.innerHTML += `<div class="response-messages"><span>${res}</span></div>`;
-                }, 1000);
+
+                fetch(url)
+                    .then(response => response.text())
+                    .then(text => {
+                        console.log(text);
+                        messages.innerHTML += `<div class="response-messages"><span>${text}</span></div>`;
+                    })
+                    .catch(error => {
+                        console.error(error);
+                        messages.innerHTML += `<div class="response-messages"><span>${error}</span></div>`;
+                    }); 
+
+                // let res = "Hey, there! I am TCS Bot !";
+                // setTimeout(() => {
+                //     messages.innerHTML += `<div class="response-messages"><span>${res}</span></div>`;
+                // }, 1000);
+
+                // messages.innerHTML += `<div class="response-messages"><span>${res}</span></div>`;
             }
         }
     </script>
