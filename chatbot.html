@@ -1,0 +1,116 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .promptmenu {
+            width: 70%;
+            color: white;
+            background-color: rgb(55, 55, 55);
+            height: 10vh;
+            border-radius: 0px 0px 15px 15px;
+            position: relative;
+            border-top: 1px solid black;
+
+        }
+
+        .menu-btn {
+            padding: 20px;
+            color: white;
+            background: linear-gradient(#cc208e, #6713d2);
+            border: none;
+            border-radius: 15px;
+            margin-left: 3%;
+            margin-top: 1%;
+            cursor: pointer;
+        }
+
+        .chat-container {
+            width: 100%;
+        }
+
+        .chat-input-container {
+            width: 100%;
+        }
+
+        .chat-input {
+            color: white;
+            width: 70%;
+            height: 10vh;
+            font-size: x-large;
+            border-radius: 10px 10px 0px 0px;
+            background-color: rgb(55, 55, 55);
+
+
+        }
+
+        .user-messages {
+            background-color: rgb(55, 55, 55);
+            border-radius: 10px;
+            color: white;
+            padding: 20px;
+            width: 80%;
+        }
+
+        .response-messages {
+            background-color: rgb(113, 112, 112);
+            border-radius: 10px;
+            color: white;
+            padding: 20px;
+            width: 80%;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <center>
+        <div class="chat-container" id="chat-container">
+            <div class="chat" id="chat-messages">
+            </div>
+            <div class="chat-input-container" id="chat-input-container">
+                <textarea class="chat-input" name="prompt" id="chat-input" rows="5"
+                    placeholder="Please select below buttons to search...."></textarea>
+                   
+                <!-- <input type="text" name="" id="chat-input" class="chat-input" > -->
+                <!-- <button onclick="inputtext()"
+                    style="height: 50px;width: 50px;background-color: rgba(17, 17, 209, 0.764);border: none;border-radius: 50%;cursor: pointer;font-size: x-large;color: white;">→</button> -->
+            </div>
+            <div class="promptmenu" id="promptmenu">
+                <center>
+                    <button class="menu-btn" onclick="btnClick(this.value)" value="openai">Azure OpenAI</button>
+                    <button class="menu-btn" onclick="btnClick(this.value)" value="amp">AMP Bank</button>
+                    <button class="menu-btn" onclick="btnClick(this.value)" value="morgan">Morgan HR</button>
+                </center>
+            </div>
+            <button onclick="usertext()"
+                style="height: 50px;width: 50px;background-color: greenyellow;border: none;border-radius: 50%;cursor: pointer;font-size: x-large;color: black;">→</button>
+
+        </div>
+    </center>
+
+
+
+    <script>
+        var chatinput = document.getElementById('chat-input');
+        var messages = document.getElementById('chat-messages');
+
+
+        function inputtext() {
+            let message = chatinput.value;
+            chatinput.value = "";
+            messages.innerHTML += `<div class="user-messages"><span>${message}</span></div>`
+        }
+
+        function usertext() {
+            let message = chatinput.value;
+            chatinput.value = "";
+            messages.innerHTML += `<div class="response-messages"><span>${message}</span></div>`
+        }
+
+    </script>
+</body>
+
+</html>
