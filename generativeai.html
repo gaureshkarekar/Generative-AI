@@ -14,13 +14,15 @@
         font-size: x-large;
         color: white;
         width: 80%;
-        border-radius: 10px 0px 0px 0px;
+        border-radius: 10px 10px 0px 0px;
         background-color: rgb(55, 55, 55);
         border: none;
     }
 
     .chat-input-container {
         display: flex;
+        margin-left: 12%;
+
     }
 
     .final-submit-btn {
@@ -46,7 +48,7 @@
     }
 
     .promptmenu {
-        width: 80%;
+        width: 70.4%;
         color: white;
         background-color: white;
         background-color: rgb(55, 55, 55);
@@ -54,11 +56,12 @@
         border-radius: 0px 0px 15px 15px;
         position: relative;
         border-top: 1px solid black;
+        margin-left: 12%;
 
     }
 
     .menu-btn {
-        padding: 12px;
+        padding: 20px;
         color: white;
         background: linear-gradient(#cc208e, #6713d2);
         border: none;
@@ -73,23 +76,26 @@
         border-radius: 10px;
         color: white;
         padding: 20px;
-        width: 80%;
+        width: 74%;
         word-wrap: break-word;
+        margin-left:12% ;
     }
 
     .response-messages {
+        margin-left:12% ;
         background-color: rgb(18, 18, 18);
         border-radius: 10px;
         color: white;
         padding: 20px;
-        width: 80%;
+        width: 74%;
         word-wrap: break-word;
-
     }
+
+ 
 </style>
 
 <body>
-
+    <img src="TCS_logo.png" width="40%" alt="" style="margin-left: 25%;margin-top: 8%;margin-bottom: 7%;" id="companylogo">
     <div class="chat-container" id="chat-container">
         <div class="chat-messages" id="chat-messages">
         </div>
@@ -112,17 +118,24 @@
         var promptmenu = document.getElementById('promptmenu');
         var input = document.getElementById('chat-input');
         var messages = document.getElementById('chat-messages');
+        var companylogo = document.getElementById('companylogo');
+        var inputcontainer = document.getElementById('chat-input-container');
 
         function docSelect(api) {
             subbtn.style.display = "block";
             promptmenu.style.display = "none";
             sessionStorage.setItem("api", api);
             input.placeholder = "You can now search your Query...";
+            input.style.borderRadius = "10px 0px 0px 0px";
         }
 
         function getResponse() {
+            inputcontainer.style.position="fixed";
+            inputcontainer.style.width="90%";
+            inputcontainer.style.bottom="15px";
             let usermsg = input.value;
             input.value = "";
+            companylogo.style.display="none";
             messages.innerHTML += `<div class="user-messages"><span>${usermsg}</span></div>`;
             let url = sessionStorage.getItem("api");
             let res = "Hey, there! I am TCS Bot !";
