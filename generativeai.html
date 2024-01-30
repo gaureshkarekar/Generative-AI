@@ -78,11 +78,11 @@
         padding: 20px;
         width: 74%;
         word-wrap: break-word;
-        margin-left:12% ;
+        margin-left: 12%;
     }
 
     .response-messages {
-        margin-left:12% ;
+        margin-left: 12%;
         background-color: rgb(18, 18, 18);
         border-radius: 10px;
         color: white;
@@ -90,12 +90,11 @@
         width: 74%;
         word-wrap: break-word;
     }
-
- 
 </style>
 
 <body>
-    <img src="TCS_logo.png" width="40%" alt="" style="margin-left: 25%;margin-top: 8%;margin-bottom: 7%;" id="companylogo">
+    <img src="TCS_logo.png" width="40%" alt="" style="margin-left: 25%;margin-top: 8%;margin-bottom: 7%;"
+        id="companylogo">
     <div class="chat-container" id="chat-container">
         <div class="chat-messages" id="chat-messages">
         </div>
@@ -130,17 +129,23 @@
         }
 
         function getResponse() {
-            inputcontainer.style.position="fixed";
-            inputcontainer.style.width="90%";
-            inputcontainer.style.bottom="15px";
+            inputcontainer.style.position = "fixed";
+            inputcontainer.style.width = "90%";
+            inputcontainer.style.bottom = "15px";
             let usermsg = input.value;
-            input.value = "";
-            companylogo.style.display="none";
-            messages.innerHTML += `<div class="user-messages"><span>${usermsg}</span></div>`;
-            let url = sessionStorage.getItem("api");
-            let res = "Hey, there! I am TCS Bot !";
-            messages.innerHTML += `<div class="response-messages"><span>${res}</span></div>`;
 
+            if (usermsg == "") {
+                alert("Please enter something in the textbox !");
+            } else {
+                input.value = "";
+                companylogo.style.display = "none";
+                messages.innerHTML += `<div class="user-messages"><span>${usermsg}</span></div>`;
+                let url = sessionStorage.getItem("api");
+                let res = "Hey, there! I am TCS Bot !";
+                setTimeout(() => {
+                    messages.innerHTML += `<div class="response-messages"><span>${res}</span></div>`;
+                }, 1000);
+            }
         }
     </script>
 </body>
