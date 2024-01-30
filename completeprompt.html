@@ -1,0 +1,107 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .promptmenu {
+        width: 80%;
+        color: white;
+        background-color: rgb(55, 55, 55);
+        height: 10vh;
+        border-radius: 0px 0px 15px 15px;
+        position: relative;
+        border-top: 1px solid black;
+
+    }
+
+    .menu-btn {
+        padding: 20px;
+        color: white;
+        background: linear-gradient(#cc208e, #6713d2);
+        border: none;
+        border-radius: 15px;
+        margin-left: 3%;
+        margin-top: 1%;
+        cursor: pointer;
+    }
+
+    .promptarea {
+        width: 80%;
+        background-color: rgb(55, 55, 55);
+        border: none;
+        border-radius: 15px 15px 0px 0px;
+        color: white;
+        font-size: x-large;
+        margin-top: 20vh;
+
+    }
+
+    .button-area {
+        margin-top: 20vh;
+        background-color: rgb(55, 55, 55);
+        width: 100px;
+        height: 129.6px;
+        border-radius: 0px 15px 0px 0px;
+        display: none;
+    }
+
+    .final-submit-btn {
+        border-radius: 50%;
+        width: 50px;
+        height: 7vh;
+        cursor: pointer;
+        font-size: x-large;
+        border: 1px solid rgb(125, 125, 125);
+        margin: 10px 30px 30px 30px;
+        background: linear-gradient(#cc208e, #6713d2);
+        color: white;
+    }
+
+    .prompt-container {
+        display: flex;
+    }
+</style>
+
+<body style="background-color: rgb(18, 18, 18);">
+    <div class="prompt-container">
+        <textarea class="promptarea" name="prompt" id="promptarea" rows="5"
+            placeholder="Please select below buttons to search...."></textarea>
+        <div class="button-area" id="button-area">
+            <button class="final-submit-btn" id="final-submit-btn" onclick="generateResponse()">⇧</button>
+        </div>
+    </div>
+    <div class="promptmenu" id="promptmenu">
+        <center>
+            <button class="menu-btn" onclick="btnClick(this.value)" value="openai">Azure OpenAI</button>
+            <button class="menu-btn" onclick="btnClick(this.value)" value="amp">AMP Bank</button>
+            <button class="menu-btn" onclick="btnClick(this.value)" value="morgan">Morgan HR</button>
+        </center>
+    </div>
+    <!-- Simple Text to notify user using p tag -->
+    <center>
+        <p id="displaymsg" style="color: white;"></p>
+    </center>
+
+    <script>
+        function btnClick(btnval) {
+            document.getElementById('promptmenu').style.display = "none";
+            document.getElementById('button-area').style.display = "block";
+            document.getElementById('promptarea').style.borderTopRightRadius = "0px";
+            sessionStorage.setItem("doc", btnval);
+            document.getElementById('displaymsg').innerHTML = `You have selected ${btnval} `;
+            document.getElementById('promptarea').placeholder = "Please type your query...";
+
+
+        }
+
+        function generateResponse() {
+            let api = sessionStorage.getItem("doc");
+            document.getElementById('displaymsg').innerHTML = `You are now searching in ${api} index`;
+        }
+    </script>
+</body>
+
+</html>

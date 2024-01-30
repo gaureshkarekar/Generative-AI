@@ -13,7 +13,7 @@
         border-radius: 15px 15px 0px 0px;
         color: white;
         font-size: x-large;
-        margin-top: 60vh;
+        margin-top: 20vh;
     }
 
     .promptmenu {
@@ -39,6 +39,15 @@
         border: 1px solid black;
     }
 
+    .final-submit-btn {
+        border-radius: 50%;
+        width: 50px;
+        height: 7vh;
+        cursor: pointer;
+        font-size: x-large;
+        border: 1px solid black;
+    }
+
     .menu-btn {
         padding: 20px;
         color: white;
@@ -55,16 +64,22 @@
 
     <center>
 
+        <img src="TCS_logo.png" id="tcslogo" alt="" height="25%" style="margin-top: 100px;">
+
         <textarea class="promptarea" name="prompt" id="" rows="5" placeholder="Ask me anything...."></textarea>
-        <div class="promptmenu">
+       
+        <div class="promptmenu" id="promptmenu">
             <button class="menu-btn" onclick="generateresponse(this.value)" value="openai">Azure Open
                 AI</button>
             <button class="menu-btn" onclick="generateresponse(this.value)" value="amp">AMP Bank</button>
             <button class="menu-btn" onclick="generateresponse(this.value)" value="morgan">Morgan HR</button>
-            <button class="submit-btn" onclick="generateresponse(this.value)">⇧</button>
+            <button class="submit-btn" id="submit-btn" onclick="generateresponse(this.value)">⇧</button>
+        </div>
+        
+        <div style="left: 70px;background-color: grey; width: 100px;height: 10vh;position: relative;border-radius: 0px 15px 0px 0px;padding: 1%;" class="" >
+            <button class="final-submit-btn" id="final-submit-btn" onclick="generateresponse(this.value)">⇧</button>
         </div>
         <p id="displaymsg" style="color: white;"></p>
-
     </center>
 
 
@@ -73,14 +88,16 @@
         function generateresponse(val) {
 
 
-            
+
 
             if (val == "") {
                 document.getElementById('displaymsg').innerHTML = "Please select one of the button from the above."
             }
-            else
-            {
-            document.getElementById('displaymsg').innerHTML = `Now you can search in ${val} docs.`
+            else {
+                document.getElementById('displaymsg').innerHTML = `Now you can search in ${val} docs.`
+                document.getElementById('tcslogo').style.display = "none";
+                document.getElementById('promptmenu').style.display = "none";
+                document.getElementById('submit-btn').style.display = ""
             }
         }
     </script>

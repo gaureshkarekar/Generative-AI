@@ -1,0 +1,51 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .promptarea {
+        width: 80%;
+        background-color: rgb(55, 55, 55);
+        border: none;
+        border-radius: 15px 0px 0px 0px;
+        color: white;
+        font-size: x-large;
+        margin-top: 20vh;
+    }
+
+    .button-area {
+        margin-top: 20vh;
+        background-color: rgb(55, 55, 55);
+        width: 100px;
+        height: 129.6px;
+        border-radius: 0px 15px 0px 0px;
+    }
+
+    .final-submit-btn {
+        border-radius: 50%;
+        width: 50px;
+        height: 7vh;
+        cursor: pointer;
+        font-size: x-large;
+        border: 1px solid black;
+        margin: 10px 30px 30px 30px;
+    }
+
+    .prompt-container {
+        display: flex;
+    }
+</style>
+
+<body>
+    <div class="prompt-container">
+        <textarea class="promptarea" name="prompt" id="" rows="5" placeholder="Ask me anything...."></textarea>
+        <div class="button-area">
+            <button class="final-submit-btn" id="final-submit-btn" onclick="generateresponse(this.value)">⇧</button>
+        </div>
+    </div>
+</body>
+
+</html>
