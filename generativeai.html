@@ -90,6 +90,11 @@
         width: 74%;
         word-wrap: break-word;
     }
+    .chat-messages{
+        height: 80%;
+        display: none;
+        overflow-y: auto;
+        }
 </style>
 
 <body>
@@ -129,6 +134,7 @@
         }
 
         function getResponse() {
+            messages.style.display="block";
             inputcontainer.style.position = "fixed";
             inputcontainer.style.width = "90%";
             inputcontainer.style.bottom = "15px";
